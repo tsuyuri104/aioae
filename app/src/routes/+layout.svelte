@@ -1,5 +1,5 @@
 <script lang="ts">
-	import 'ress/ress.css';
+	import 'destyle.css/destyle.css';
 </script>
 
 <main>
