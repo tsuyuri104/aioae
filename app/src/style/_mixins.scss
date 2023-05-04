@@ -1,0 +1,5 @@
+@mixin ForPc() {
+	@media (min-width: 400px) {
+		@content;
+	}
+}
