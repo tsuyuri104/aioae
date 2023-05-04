@@ -33,6 +33,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"ress": "^5.0.2"
+		"destyle.css": "^4.0.0"
 	}
 }
