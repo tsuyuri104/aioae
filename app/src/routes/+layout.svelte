@@ -17,6 +17,7 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 1.5em;
+		font-family: 'Nanum Gothic Coding', 'M PLUS Rounded 1c', sans-serif;
 	}
 	main {
 		margin: 0 auto;
