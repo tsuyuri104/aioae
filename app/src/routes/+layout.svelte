@@ -11,10 +11,10 @@
 	@use '../style/mixins';
 	main {
 		margin: 0 auto;
-		max-width: 95vw;
+		width: 95vw;
 
 		@include mixins.ForPc() {
-			max-width: 80vw;
+			width: 80vw;
 		}
 	}
 </style>
