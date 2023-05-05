@@ -1,6 +1,6 @@
 <script lang="ts">
+	import Header from '$components/Header.svelte';
 	import 'destyle.css/destyle.css';
-	import Header from '../components/Header.svelte';
 </script>
 
 <div>
