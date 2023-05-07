@@ -18,6 +18,8 @@
 		flex-direction: column;
 		row-gap: 1.5em;
 		font-family: 'Nanum Gothic Coding', 'M PLUS Rounded 1c', sans-serif;
+		background-color: #f9f9f9;
+		min-height: 100svh;
 	}
 	main {
 		margin: 0 auto;
