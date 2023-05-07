@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { t } from '$lib/translations/translations';
+	import { createPageFullTitle } from '$lib/utilities/creater';
 </script>
+
+<svelte:head>
+	<title>{createPageFullTitle('Error')}</title>
+</svelte:head>
 
 <div>
 	<h1>{$page.status}</h1>
