@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@robakk08/svelte-evaicons": "^0.0.3",
 		"destyle.css": "^4.0.0",
 		"microcms-js-sdk": "^2.3.3"
 	}
