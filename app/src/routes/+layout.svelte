@@ -13,6 +13,7 @@
 <style lang="scss">
 	@use '../style/fonts';
 	@use '../style/mixins';
+	@use '../style/colors';
 	div {
 		display: flex;
 		flex-direction: column;
@@ -20,6 +21,7 @@
 		font-family: 'Nanum Gothic Coding', 'M PLUS Rounded 1c', sans-serif;
 		background-color: #f9f9f9;
 		min-height: 100svh;
+		color: colors.$navy_dark;
 	}
 	main {
 		margin: 0 auto;
