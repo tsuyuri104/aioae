@@ -1,7 +1,4 @@
 <header>
-	<div class="title">
-		<a href="./">by Tsuyuri</a>
-	</div>
 	<div class="lang">
 		<label for="rdoLangKo">
 			한<input type="radio" name="lang" id="rdoLangKo" checked />
@@ -26,20 +23,6 @@
 
 		@include mixins.ForPc() {
 			width: 60vw;
-		}
-	}
-	.title {
-		grid-column-start: 2;
-		grid-column-end: 5;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-
-		a {
-			font-family: 'Alegreya Sans', sans-serif;
-			font-size: 1.5em;
-			font-weight: 400;
 		}
 	}
 	.lang {
