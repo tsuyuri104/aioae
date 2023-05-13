@@ -4,7 +4,7 @@
 
 <div class="wrapper">
 	<img src="/images/profile.jpg" alt="profile" class="photo" />
-	<span>{$t('common.nickName')}</span>
+	<span class="nickname">{$t('common.nickName')}</span>
 </div>
 
 <style lang="scss">
@@ -13,6 +13,9 @@
 		flex-direction: column;
 		align-items: center;
 		row-gap: 1em;
+	}
+	.nickname {
+		font-size: 1.25rem;
 	}
 	.photo {
 		width: 150px;

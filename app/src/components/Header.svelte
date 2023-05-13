@@ -18,20 +18,16 @@
 	header {
 		backdrop-filter: blur(3px);
 		min-height: 2em;
-		padding: 0.5em 0;
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-template-rows: 1;
-		margin: 0 auto;
-		width: 95vw;
-
-		@include mixins.ForPc() {
-			width: 60vw;
-		}
+		padding: 0.5em 1rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		width: 100vw;
+		box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+		position: sticky;
+		top: 0;
 	}
 	.langs {
-		grid-column-start: 5;
-		grid-column-end: 6;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
