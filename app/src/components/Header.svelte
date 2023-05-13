@@ -1,10 +1,14 @@
+<script lang="ts">
+	import { locale } from '$lib/translations/translations';
+</script>
+
 <header>
-	<div class="lang">
+	<div class="langs">
 		<label for="rdoLangKo">
-			한<input type="radio" name="lang" id="rdoLangKo" checked />
+			가<input type="radio" name="lang" bind:group={$locale} id="rdoLangKo" value="ko" />
 		</label>
-		<label for="rdoLangJa" class="commingsoon">
-			あ<input type="radio" name="lang" id="rdoLangJa" />
+		<label for="rdoLangJa">
+			あ<input type="radio" name="lang" bind:group={$locale} id="rdoLangJa" value="ja" />
 		</label>
 	</div>
 </header>
@@ -25,23 +29,24 @@
 			width: 60vw;
 		}
 	}
-	.lang {
+	.langs {
 		grid-column-start: 5;
 		grid-column-end: 6;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: flex-end;
-		column-gap: 0.5em;
+		column-gap: 0.25em;
 
-		label:has(input[type='radio']:checked) {
-			display: inline-block;
+		label {
 			padding: 0.5em;
-			border-radius: 25%;
-			box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+			&:has(input[type='radio']:checked) {
+				display: inline-block;
+				border-radius: 25%;
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+				background-color: #ffffff;
+			}
 		}
-	}
-	.commingsoon {
-		text-decoration: line-through;
 	}
 </style>
