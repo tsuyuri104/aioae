@@ -1,10 +1,10 @@
-<footer>
+<footer class="footer">
 	<p>by Tsuyuri</p>
 </footer>
 
 <style lang="scss">
 	@use '../style/mixins';
-	footer {
+	.footer {
 		min-height: 2em;
 		padding: 1.5rem;
 		display: flex;
