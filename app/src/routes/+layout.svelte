@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from '$components/Footer.svelte';
 	import Header from '$components/Header.svelte';
 	import 'destyle.css/destyle.css';
 </script>
@@ -8,6 +9,7 @@
 	<main>
 		<slot />
 	</main>
+	<Footer />
 </div>
 
 <style lang="scss">
@@ -19,7 +21,7 @@
 		flex-direction: column;
 		row-gap: 1.5em;
 		font-family: 'Nanum Gothic Coding', 'M PLUS Rounded 1c', sans-serif;
-		background-color: #f9f9f9;
+		background-color: colors.$purple_base;
 		min-height: 100svh;
 		color: colors.$navy_dark;
 	}
