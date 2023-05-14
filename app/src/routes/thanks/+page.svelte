@@ -1,3 +1,11 @@
+<script lang="ts">
+	import { createPageFullTitle } from '$lib/utilities/creater';
+</script>
+
+<svelte:head>
+	<title>{createPageFullTitle('Thanks')}</title>
+</svelte:head>
+
 <section>
 	<h1 class="h1">Thanks</h1>
 	<ul>
