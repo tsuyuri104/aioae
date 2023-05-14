@@ -1,7 +1,22 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
 	import Footer from '$components/Footer.svelte';
 	import Header from '$components/Header.svelte';
+	import { firebaseConfig } from '$lib/firebase/config';
 	import 'destyle.css/destyle.css';
+	import { getAnalytics } from 'firebase/analytics';
+	import { initializeApp } from 'firebase/app';
+	import { getAuth } from 'firebase/auth';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		// Initialize Firebase
+		if (!dev) {
+			const app = initializeApp(firebaseConfig);
+			getAnalytics(app);
+			getAuth(app);
+		}
+	});
 </script>
 
 <div>
