@@ -1,6 +1,5 @@
 //REF: https://github.com/sveltekit-i18n/lib
 import { browser } from '$app/environment';
-import type { LangType } from '$cmstypes/common';
 import { loadTranslations, locale } from '$lib/translations/translations';
 import type { PageLoad } from './$types';
 
@@ -10,7 +9,7 @@ export const trailingSlash = 'always';
 export const load: PageLoad = async ({ url }) => {
 	const { pathname } = url;
 
-	const defaultLocale = (browser ? window.navigator.language : 'ko') as LangType; // get from cookie, user session, ...
+	const defaultLocale: string = browser ? window.navigator.language : 'ko'; // get from cookie, user session, ...
 
 	const initLocale = locale.get() || defaultLocale; // set default if no locale already set
 
