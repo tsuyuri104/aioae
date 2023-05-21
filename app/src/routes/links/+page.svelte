@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { LangType } from '$cmstypes/common';
-	import { IconComponents } from '$cmstypes/links';
 	import ProfileMini from '$components/ProfileMini.svelte';
+	import type { LangType } from '$lib/cmstypes/common.js';
+	import { IconComponents } from '$lib/cmstypes/links.js';
 	import { locale } from '$lib/translations/translations.js';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 
