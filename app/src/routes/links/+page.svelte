@@ -1,8 +1,8 @@
 <script lang="ts">
 	import ProfileMini from '$components/ProfileMini.svelte';
-	import type { LangType } from '$lib/cmstypes/common.js';
-	import { IconComponents } from '$lib/cmstypes/links.js';
-	import { locale } from '$lib/translations/translations.js';
+	import type { LangType } from '$lib/micro-cms/common';
+	import { IconComponents } from '$lib/micro-cms/links';
+	import { locale } from '$lib/translations/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 
 	export let data;

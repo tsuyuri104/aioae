@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/private';
-import type { Links } from '$lib/cmstypes/links';
+import type { Links } from '$lib/micro-cms/links';
 import { createClient } from 'microcms-js-sdk';
 
 export const load = async () => {
