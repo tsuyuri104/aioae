@@ -38,7 +38,6 @@
 </div>
 
 <style lang="scss">
-	@use '../../style/mixins';
 	@use '../../style/colors';
 	.link {
 		display: block;
@@ -57,10 +56,6 @@
 		grid-template-columns: repeat(2, 1fr);
 		row-gap: 1rem;
 		column-gap: 1rem;
-
-		@include mixins.ForPc() {
-			grid-template-columns: repeat(4, 1fr);
-		}
 	}
 	.card {
 		padding: 0.8rem;

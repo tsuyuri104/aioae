@@ -19,9 +19,9 @@
 	});
 </script>
 
-<div>
+<div class="wrapper">
 	<Header />
-	<main>
+	<main class="main">
 		<slot />
 	</main>
 	<Footer />
@@ -29,9 +29,9 @@
 
 <style lang="scss">
 	@use '../style/fonts';
-	@use '../style/mixins';
 	@use '../style/colors';
-	div {
+
+	.wrapper {
 		display: flex;
 		flex-direction: column;
 		row-gap: 1.5em;
@@ -39,12 +39,15 @@
 		background-color: colors.$purple_base;
 		min-height: 100svh;
 		color: colors.$navy_dark;
+		container-type: inline-size;
 	}
-	main {
-		margin: 0 auto;
+	.main {
+		margin-inline: auto;
 		width: 95vw;
+	}
 
-		@include mixins.ForPc() {
+	@container (400px <= width) {
+		.main {
 			width: 80vw;
 		}
 	}

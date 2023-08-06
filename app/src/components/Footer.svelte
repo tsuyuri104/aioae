@@ -3,7 +3,6 @@
 </footer>
 
 <style lang="scss">
-	@use '../style/mixins';
 	.footer {
 		min-height: 2em;
 		padding: 1.5rem;

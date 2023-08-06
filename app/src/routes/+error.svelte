@@ -8,18 +8,18 @@
 	<title>{createPageFullTitle('Error')}</title>
 </svelte:head>
 
-<div>
-	<h1>{$page.status}</h1>
+<div class="wrapper">
+	<h1 class="h1">{$page.status}</h1>
 	<p>{$t(`common.error.${$page.status}`)}</p>
 </div>
 
 <style lang="scss">
-	h1 {
-		font-size: 2.5em;
-	}
-	div {
+	.wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+	.h1 {
+		font-size: 2.5em;
 	}
 </style>
