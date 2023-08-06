@@ -1,8 +1,36 @@
+<script lang="ts" context="module">
+	type menuItem = {
+		href: string;
+		text: string;
+	};
+	export const menuItems: menuItem[] = [
+		{
+			href: '/blog',
+			text: 'Blog'
+		},
+		{
+			href: '/links',
+			text: 'Links'
+		},
+		{
+			href: '/thanks',
+			text: 'Thanks'
+		},
+		{
+			href: '/',
+			text: 'Top'
+		}
+	];
+</script>
+
 <script lang="ts">
 	import { locale } from '$lib/translations/translations';
 	import { CloseOutlineIcon, Menu2OutlineIcon } from '@robakk08/svelte-evaicons';
 
 	let showMenu = false;
+	function handleShowMenu() {
+		showMenu = false;
+	}
 </script>
 
 <header class="wrapper">
@@ -32,28 +60,11 @@
 	</div>
 	<menu class="menu" class:showMenu>
 		<ul>
-			<li class="item">
-				<a
-					href="/links"
-					on:click={() => {
-						showMenu = false;
-					}}
-					class="link"
-				>
-					Links
-				</a>
-			</li>
-			<li class="item">
-				<a
-					href="/thanks"
-					on:click={() => {
-						showMenu = false;
-					}}
-					class="link"
-				>
-					Thanks
-				</a>
-			</li>
+			{#each menuItems as item (item.href)}
+				<li class="item">
+					<a href={item.href} on:click={handleShowMenu} class="link">{item.text}</a>
+				</li>
+			{/each}
 		</ul>
 	</menu>
 </header>
