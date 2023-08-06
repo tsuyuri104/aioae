@@ -9,22 +9,10 @@ const config = {
 			loader: async () => (await import('./ko/common.json')).default
 		},
 		{
-			locale: 'ko',
-			key: 'home',
-			routes: ['/'], // you can use regexes as well!
-			loader: async () => (await import('./ko/home.json')).default
-		},
-		{
 			locale: 'ja',
 			key: 'common',
 			loader: async () => (await import('./ja/common.json')).default
 		},
-		{
-			locale: 'ja',
-			key: 'home',
-			routes: ['/'],
-			loader: async () => (await import('./ja/home.json')).default
-		}
 	]
 };
 
