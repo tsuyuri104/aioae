@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
-	import Footer from '$components/Footer.svelte';
-	import Header from '$components/Header.svelte';
+	import Footer from '$components/layout/Footer.svelte';
+	import Header from '$components/layout/Header.svelte';
 	import { firebaseConfig } from '$lib/firebase/config';
 	import 'destyle.css/destyle.css';
 	import { getAnalytics } from 'firebase/analytics';

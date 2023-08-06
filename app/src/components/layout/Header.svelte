@@ -59,7 +59,7 @@
 </header>
 
 <style lang="scss">
-	@use '../style/colors';
+	@use '../../style/colors';
 
 	.header {
 		backdrop-filter: blur(3px);
