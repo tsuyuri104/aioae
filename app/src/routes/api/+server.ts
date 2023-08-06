@@ -8,6 +8,7 @@ export const _getData = async <T>(
   queries:{
   limit?: number,
   filters?: string[],
+	order?: string,
 }): Promise<MicroCMSListResponse<T>> => {
 	const client = createClient({
 		serviceDomain: env.API_DOMAIN,
@@ -19,6 +20,7 @@ export const _getData = async <T>(
 		queries: {
 			filters: queries.filters ? queries.filters.join(',') : '',
 			limit: queries.limit,
+			orders: queries.order ? queries.order : '',
 		}
 	});
 };

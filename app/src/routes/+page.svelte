@@ -4,6 +4,8 @@
 	import { locale } from '$lib/translations/translations';
 	import type { LangType } from '$lib/micro-cms/common';
 	import { IconComponents, type Links } from '$api/links/dto/links';
+	import type { Blog } from '$api/links/dto/blog';
+	import { EYECATCH_URL, EYECATCH_COLOR, PROFILE_URL } from '$lib/micro-cms/ogp'
 
 	$: localeName = $locale as LangType;
 	
@@ -17,11 +19,17 @@
 		return await res.json();
 	}
 
-	let promise = Promise.all([getAbout(), getLinks()])
-		.then(([about, links]) =>  {
+	async function getBlog(): Promise<Blog | Error> {
+		const res = await fetch(`/api/blog`);
+		return await res.json();
+	}
+
+	let promise = Promise.all([getAbout(), getLinks(), getBlog()])
+		.then(([about, links, blog]) =>  {
 			return {
 				about,
 				links,
+				blog,
 			};
 		})
 		.catch((error) => error);
@@ -59,6 +67,25 @@
 				</dl>
 			</div>
 		{/if}
+		{#if data.blog.totalCount > 0}
+			<div class="blog-wrapper">
+				<h2 class="h2">Blog</h2>
+				{#each data.blog.contents as item}
+					<div class="blog-item">
+						<div class="item-head">
+							<img 
+								src={`${EYECATCH_URL}?txt=${item.title}&txt-size=84&txt-align=middle,center&txt-color=${EYECATCH_COLOR}`} 
+								alt={item.title}
+								class="eyecatch"
+								/>
+						</div>
+						<div class="item-body">
+							{item.title}
+						</div>
+					</div>
+				{/each}
+			</div>
+		{/if}
 	{/await}
 </div>
 
@@ -69,7 +96,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		row-gap: 1em;
+		row-gap: 1.8em;
 	}
 	.photo {
 		width: 150px;
@@ -83,7 +110,8 @@
 			color: colors.$pink-dark;
 		}
 	}
-	.product-wrapper {
+	.product-wrapper,
+	.blog-wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -101,5 +129,19 @@
 		background-color: #ffffff;
 		padding: 1em;
 		border-radius: 1em;
+	}
+	.blog-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: 0.5em;
+		width: 300px;
+		background-color: #ffffff;
+		padding: 0 1em 1em 1em;
+		border-radius: 1em;
+	}
+	.eyecatch {
+		width: 300px;
+		border-radius: 1em 1em 0 0;
 	}
 </style>
