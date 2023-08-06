@@ -1,12 +1,26 @@
 <script lang="ts">
+	import { IconComponents, type Links } from '$api/links/dto/links';
 	import ProfileMini from '$components/ProfileMini.svelte';
 	import type { LangType } from '$lib/micro-cms/common';
-	import { IconComponents } from '$lib/micro-cms/links';
 	import { locale } from '$lib/translations/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 
-	export let data;
 	$: localeName = $locale as LangType;
+
+	async function getLinks(): Promise<Links | Error> {
+		const res = await fetch(`/api/links`);
+		const data = await res.json();
+
+		if (res.ok) {
+			return data;
+		} else {
+			throw new Error(data);
+		}
+	}
+
+	let promise = Promise.all([getLinks()])
+		.then(([data]) => data)
+		.catch((error) => error);
 </script>
 
 <svelte:head>
@@ -16,25 +30,27 @@
 <ProfileMini />
 
 <div class="wrapper">
-	{#each data.links.contents as item (item.id)}
-		<div class={['card', item.category].join(' ')}>
-			<a href={item.url} target="_blank" rel="noopener noreferrer" class="link">
-				<div class="center">
-					<div class="icon">
-						{#if item.icon}
-							<svelte:component this={IconComponents.get(item.icon)} size="2.5x" />
-						{:else}
-							<svelte:component this={IconComponents.get('Heart')} size="2.5x" />
-						{/if}
+	{#await promise then data}
+		{#each data.contents as item (item.id)}
+			<div class={['card', item.category].join(' ')}>
+				<a href={item.url} target="_blank" rel="noopener noreferrer" class="link">
+					<div class="center">
+						<div class="icon">
+							{#if item.icon}
+								<svelte:component this={IconComponents.get(item.icon)} size="2.5x" />
+							{:else}
+								<svelte:component this={IconComponents.get('Heart')} size="2.5x" />
+							{/if}
+						</div>
+						<span>{item.title[localeName]}</span>
 					</div>
-					<span>{item.title[localeName]}</span>
-				</div>
-				{#if item.description}
-					<p class="description">{item.description[localeName]}</p>
-				{/if}
-			</a>
-		</div>
-	{/each}
+					{#if item.description}
+						<p class="description">{item.description[localeName]}</p>
+					{/if}
+				</a>
+			</div>
+		{/each}
+	{/await}
 </div>
 
 <style lang="scss">

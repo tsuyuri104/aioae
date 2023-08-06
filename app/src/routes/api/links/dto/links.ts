@@ -1,3 +1,4 @@
+import type { Common, Lang } from '$lib/micro-cms/common';
 import {
 	CameraOutlineIcon,
 	EditOutlineIcon,
@@ -7,7 +8,6 @@ import {
 	TwitterOutlineIcon,
 	VideoOutlineIcon
 } from '@robakk08/svelte-evaicons';
-import type { Common, Lang } from './common';
 
 export type Links = Common & {
 	url: string;
