@@ -9,13 +9,7 @@
 
 	async function getLinks(): Promise<Links | Error> {
 		const res = await fetch(`/api/links`);
-		const data = await res.json();
-
-		if (res.ok) {
-			return data;
-		} else {
-			throw new Error(data);
-		}
+		return await res.json();
 	}
 
 	let promise = Promise.all([getLinks()])
