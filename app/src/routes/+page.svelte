@@ -7,22 +7,20 @@
 	import type { Blog } from '$api/links/dto/blog';
 	import { EYECATCH_URL, EYECATCH_COLOR, PROFILE_URL } from '$lib/micro-cms/ogp'
 	import { page } from '$app/stores';
+	import { fetchCms } from '$lib/micro-cms/fetchCms';
 
 	$: localeName = $locale as LangType;
 	
-	async function getAbout(): Promise<About | Error> {
-		const res = await fetch(`/api/about`);
-		return await res.json();
+	async function getAbout(): Promise<About> {
+		return await fetchCms<About>(`about`)
 	}
 
-	async function getLinks(): Promise<Links | Error> {
-		const res = await fetch(`/api/links?filters=inTop[equals]true`);
-		return await res.json();
+	async function getLinks(): Promise<Links> {
+		return await fetchCms<Links>(`links?filters=inTop[equals]true`);
 	}
 
-	async function getBlog(): Promise<Blog | Error> {
-		const res = await fetch(`/api/blog`);
-		return await res.json();
+	async function getBlog(): Promise<Blog> {
+		return await fetchCms<Blog>(`blog`);
 	}
 
 	let promise = Promise.all([getAbout(), getLinks(), getBlog()])
@@ -32,8 +30,7 @@
 				links,
 				blog,
 			};
-		})
-		.catch((error) => error);
+		});
 </script>
 
 <svelte:head>

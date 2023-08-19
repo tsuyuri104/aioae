@@ -4,17 +4,16 @@
 	import type { LangType } from '$lib/micro-cms/common';
 	import { locale } from '$lib/translations/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
+	import { fetchCms } from '$lib/micro-cms/fetchCms';
 
 	$: localeName = $locale as LangType;
 
-	async function getLinks(): Promise<Links | Error> {
-		const res = await fetch(`/api/links`);
-		return await res.json();
+	async function getLinks(): Promise<Links> {
+		return await fetchCms<Links>('links');
 	}
 
 	let promise = Promise.all([getLinks()])
-		.then(([data]) => data)
-		.catch((error) => error);
+		.then(([data]) => data);
 </script>
 
 <svelte:head>
