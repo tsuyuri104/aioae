@@ -1,6 +1,5 @@
 import i18n, { type Config } from 'sveltekit-i18n';
 
-// /** @type {import('sveltekit-i18n').Config} */
 const config: Config = {
 	loaders: [
 		{
