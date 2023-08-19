@@ -60,7 +60,7 @@
 		{#if data.about.product.length > 0}
 			<div class="product-wrapper">
 				<h2 class="h2">Prodcution</h2>
-				<dl>
+				<dl class="product-list">
 					{#each data.about.product as prod}
 						<div class="item">
 							<dt class="item-head">
@@ -126,6 +126,13 @@
 	}
 	.h2{
 		font-size: 1.5rem;
+	}
+	.product-list {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		row-gap: 0.5em;
 	}
 	.item {
 		display: flex;
