@@ -9,10 +9,6 @@
 			text: 'Blog'
 		},
 		{
-			href: '/links',
-			text: 'Links'
-		},
-		{
 			href: '/thanks',
 			text: 'Thanks'
 		},
