@@ -11,26 +11,21 @@
 
 	$: localeName = $locale as LangType;
 	
-	async function getAbout(): Promise<About> {
+	async function getAbout(): Promise<About | Error> {
 		return await fetchCms<About>(`about`)
 	}
 
-	async function getLinks(): Promise<Links> {
+	async function getLinks(): Promise<Links | Error> {
 		return await fetchCms<Links>(`links?filters=inTop[equals]true`);
 	}
 
-	async function getBlog(): Promise<Blog> {
+	async function getBlog(): Promise<Blog | Error> {
 		return await fetchCms<Blog>(`blog`);
 	}
 
-	let promise = Promise.all([getAbout(), getLinks(), getBlog()])
-		.then(([about, links, blog]) =>  {
-			return {
-				about,
-				links,
-				blog,
-			};
-		});
+	let promiseAbout = getAbout();
+	let promiseLinks = getLinks();
+	let promiseBlog = getBlog();
 </script>
 
 <svelte:head>
@@ -44,37 +39,41 @@
 </svelte:head>
 
 <div class="wrapper">
-	{#await promise then data}
-		<img src="/images/profile.jpg" alt="profile" class="photo" />
-		<span class="nickname">{data.about.name[localeName]}</span>
-		<div class="links-wrapepr">
-			{#each data.links.contents as item}
+	<img src="/images/profile.jpg" alt="profile" class="photo" />
+	{#await promiseAbout then data}
+		<span class="nickname">{data.name[localeName]}</span>
+	{/await}
+	<div class="links-wrapepr">
+		{#await promiseLinks then data}
+			{#each data.contents as item}
 				<a href={item.url} target="_blank" rel="noopener noreferrer" class="link">
 					<svelte:component this={IconComponents.get(item.icon)} size="1.5x" />
 				</a>
 			{/each}
+		{/await}
+	</div>
+	{#await promiseAbout then data}
+		<div class="product-wrapper">
+			<h2 class="h2">Prodcution</h2>
+			<dl class="product-list">
+				{#each data.product as prod}
+					<div class="item">
+						<dt class="item-head">
+							<a href={prod.url} target="_blank" rel="noopener noreferrer" class="link">
+								{prod.title[0][localeName]}
+							</a>
+						</dt>
+						<dd class="item-body">{prod.text[0][localeName]}</dd>
+					</div>
+				{/each}
+			</dl>
 		</div>
-		{#if data.about.product.length > 0}
-			<div class="product-wrapper">
-				<h2 class="h2">Prodcution</h2>
-				<dl class="product-list">
-					{#each data.about.product as prod}
-						<div class="item">
-							<dt class="item-head">
-								<a href={prod.url} target="_blank" rel="noopener noreferrer" class="link">
-									{prod.title[0][localeName]}
-								</a>
-							</dt>
-							<dd class="item-body">{prod.text[0][localeName]}</dd>
-						</div>
-					{/each}
-				</dl>
-			</div>
-		{/if}
-		{#if data.blog.totalCount > 0}
+	{/await}
+	{#await promiseBlog then data}
+		{#if data.totalCount > 0}
 			<div class="blog-wrapper">
 				<h2 class="h2">Blog</h2>
-				{#each data.blog.contents as item}
+				{#each data.contents as item}
 					<div class="blog-item">
 						<div class="item-head">
 							<img 
