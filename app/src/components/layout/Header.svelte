@@ -108,7 +108,7 @@
 	}
 
 	.menubutton {
-		color: colors.$navy_light;
+		color: colors.get('beige', 'text');
 		cursor: pointer;
 	}
 

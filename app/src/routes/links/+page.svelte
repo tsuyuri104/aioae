@@ -80,7 +80,7 @@
 			.icon {
 				transition: 0.2s;
 				transform: scale(1.05);
-				color: colors.$pink-dark;
+				color: colors.get('pink', 'text');
 			}
 		}
 

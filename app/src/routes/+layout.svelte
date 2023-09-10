@@ -34,9 +34,9 @@
 		flex-direction: column;
 		row-gap: 1.5em;
 		font-family: 'Nanum Gothic Coding', 'M PLUS Rounded 1c', sans-serif;
-		background-color: colors.$purple_base;
+		background-color: colors.get('beige', 'bg-light');
 		min-height: 100svh;
-		color: colors.$navy_dark;
+		color: colors.get('beige', 'text');
 		container-type: inline-size;
 	}
 	.main {

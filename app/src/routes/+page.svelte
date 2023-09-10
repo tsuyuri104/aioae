@@ -110,7 +110,7 @@
 	}
 	.link {
 		&:hover {
-			color: colors.$pink-dark;
+			color: colors.get('pink', 'text');
 		}
 	}
 	.product-wrapper,
