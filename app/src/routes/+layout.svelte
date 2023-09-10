@@ -33,7 +33,6 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 1.5em;
-		font-family: 'Nanum Gothic Coding', 'M PLUS Rounded 1c', sans-serif;
 		background-color: colors.get('beige', 'bg-light');
 		min-height: 100svh;
 		color: colors.get('beige', 'text');
@@ -47,6 +46,24 @@
 	@container (400px <= width) {
 		.main {
 			width: 80vw;
+		}
+	}
+
+	:global(.ja) {
+		&.serif {
+			font-family: fonts.getSerif('ja');
+		}
+	}
+
+	:global(.ko) {
+		&.serif {
+			font-family: fonts.getSerif('ko');
+		}
+	}
+
+	:global(.en) {
+		&.serif {
+			font-family: fonts.getSerif('en');
 		}
 	}
 </style>
