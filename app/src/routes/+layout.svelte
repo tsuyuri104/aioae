@@ -2,7 +2,9 @@
 	import { dev } from '$app/environment';
 	import Footer from '$components/layout/Footer.svelte';
 	import Header from '$components/layout/Header.svelte';
+	import Switcher from '$components/layout/Switcher.svelte';
 	import { firebaseConfig } from '$lib/firebase/config';
+	import { locale } from '$lib/translations';
 	import 'destyle.css/destyle.css';
 	import { getAnalytics } from 'firebase/analytics';
 	import { initializeApp } from 'firebase/app';
@@ -17,30 +19,35 @@
 	});
 </script>
 
-<div class="wrapper">
-	<Header />
-	<main class="main">
-		<slot />
-	</main>
-	<Footer />
+<div class="outer">
+	<div class="inner" class:ja={$locale === 'ja'} class:ko={$locale === 'ko'}>
+		<Header />
+
+		<main>
+			<slot />
+		</main>
+
+		<Footer />
+		<Switcher />
+	</div>
 </div>
 
 <style lang="scss">
 	@use '../style/fonts';
 	@use '../style/colors';
 
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-		row-gap: 1.5em;
+	.outer {
 		background-color: colors.get('beige', 'bg-light');
-		min-height: 100svh;
 		color: colors.get('beige', 'text');
-		container-type: inline-size;
+		font-size: 16px;
 	}
-	.main {
+
+	.inner {
 		margin-inline: auto;
-		width: 95vw;
+		min-height: 100svh;
+		width: 100svw;
+		max-width: 400px;
+		padding: 1em;
 	}
 
 	@container (400px <= width) {

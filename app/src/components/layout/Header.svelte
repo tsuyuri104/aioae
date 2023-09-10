@@ -20,7 +20,6 @@
 </script>
 
 <script lang="ts">
-	import { locale } from '$lib/translations';
 	import { CloseOutlineIcon, Menu2OutlineIcon } from '@robakk08/svelte-evaicons';
 
 	let showMenu = false;
@@ -45,14 +44,6 @@
 				{/if}
 			</button>
 		</div>
-		<div class="langs">
-			<label for="rdoLangKo" class="label">
-				가<input type="radio" name="lang" bind:group={$locale} id="rdoLangKo" value="ko" />
-			</label>
-			<label for="rdoLangJa" class="label">
-				あ<input type="radio" name="lang" bind:group={$locale} id="rdoLangJa" value="ja" />
-			</label>
-		</div>
 	</div>
 	<menu class="menu" class:showMenu>
 		<ul>
@@ -66,7 +57,7 @@
 </header>
 
 <style lang="scss">
-	@use '../../style/colors';
+	@use 'src/style/colors';
 
 	.header {
 		backdrop-filter: blur(3px);
@@ -110,24 +101,5 @@
 	.menubutton {
 		color: colors.get('beige', 'text');
 		cursor: pointer;
-	}
-
-	.langs {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: flex-end;
-		column-gap: 0.25em;
-		grid-area: langs;
-	}
-	.label {
-		padding: 0.5em;
-
-		&:has(input[type='radio']:checked) {
-			display: inline-block;
-			border-radius: 25%;
-			box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-			background-color: #ffffff;
-		}
 	}
 </style>

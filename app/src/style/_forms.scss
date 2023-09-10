@@ -1,0 +1,6 @@
+@use 'src/style/colors';
+
+@mixin outline {
+	outline: 2px solid colors.get('blue', 'outline');
+	outline-offset: 1px;
+}
