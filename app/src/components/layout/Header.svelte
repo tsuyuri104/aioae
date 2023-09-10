@@ -6,16 +6,16 @@
 	export const menuItems: menuItem[] = [
 		{
 			href: '/blog',
-			text: 'Blog'
+			text: 'Blog',
 		},
 		{
 			href: '/thanks',
-			text: 'Thanks'
+			text: 'Thanks',
 		},
 		{
 			href: '/',
-			text: 'Top'
-		}
+			text: 'Top',
+		},
 	];
 </script>
 

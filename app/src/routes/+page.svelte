@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { createPageFullTitle } from '$lib/utilities/creater';
 	import type { About } from '$api/links/dto/about';
-	import { locale } from '$lib/translations/translations';
-	import type { LangType } from '$lib/micro-cms/common';
-	import { IconComponents, type Links } from '$api/links/dto/links';
 	import type { Blog } from '$api/links/dto/blog';
-	import { EYECATCH_URL, EYECATCH_COLOR, PROFILE_URL } from '$lib/micro-cms/ogp'
+	import { IconComponents, type Links } from '$api/links/dto/links';
 	import { page } from '$app/stores';
+	import type { LangType } from '$lib/micro-cms/common';
 	import { fetchCms } from '$lib/micro-cms/fetchCms';
+	import { EYECATCH_COLOR, EYECATCH_URL, PROFILE_URL } from '$lib/micro-cms/ogp';
+	import { locale } from '$lib/translations/translations';
+	import { createPageFullTitle } from '$lib/utilities/creater';
 
 	$: localeName = $locale as LangType;
-	
+
 	async function getAbout(): Promise<About | Error> {
-		return await fetchCms<About>(`about`)
+		return await fetchCms<About>(`about`);
 	}
 
 	async function getLinks(): Promise<Links | Error> {
@@ -76,11 +76,11 @@
 				{#each data.contents as item}
 					<div class="blog-item">
 						<div class="item-head">
-							<img 
-								src={`${EYECATCH_URL}?txt=${item.title}&txt-size=84&txt-align=middle,center&txt-color=${EYECATCH_COLOR}`} 
+							<img
+								src={`${EYECATCH_URL}?txt=${item.title}&txt-size=84&txt-align=middle,center&txt-color=${EYECATCH_COLOR}`}
 								alt={item.title}
 								class="eyecatch"
-								/>
+							/>
 						</div>
 						<div class="item-body">
 							{item.title}
@@ -94,7 +94,7 @@
 
 <style lang="scss">
 	@use '../style/colors';
-	
+
 	.wrapper {
 		display: flex;
 		flex-direction: column;
@@ -120,7 +120,7 @@
 		align-items: center;
 		row-gap: 1em;
 	}
-	.h2{
+	.h2 {
 		font-size: 1.5rem;
 	}
 	.product-list {

@@ -2,9 +2,9 @@
 	import { IconComponents, type Links } from '$api/links/dto/links';
 	import ProfileMini from '$components/ProfileMini.svelte';
 	import type { LangType } from '$lib/micro-cms/common';
+	import { fetchCms } from '$lib/micro-cms/fetchCms';
 	import { locale } from '$lib/translations/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
-	import { fetchCms } from '$lib/micro-cms/fetchCms';
 
 	$: localeName = $locale as LangType;
 
@@ -12,8 +12,7 @@
 		return await fetchCms<Links>('links');
 	}
 
-	let promise = Promise.all([getLinks()])
-		.then(([data]) => data);
+	let promise = Promise.all([getLinks()]).then(([data]) => data);
 </script>
 
 <svelte:head>
