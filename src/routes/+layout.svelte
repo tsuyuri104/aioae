@@ -33,8 +33,8 @@
 </div>
 
 <style lang="scss">
-	@use '../style/fonts';
-	@use '../style/colors';
+	@use 'src/style/fonts';
+	@use 'src/style/colors';
 
 	.outer {
 		background-color: colors.get('beige', 'bg-light');
