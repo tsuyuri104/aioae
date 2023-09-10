@@ -3,7 +3,7 @@
 	import ProfileMini from '$components/ProfileMini.svelte';
 	import type { LangType } from '$lib/micro-cms/common';
 	import { fetchCms } from '$lib/micro-cms/fetchCms';
-	import { locale } from '$lib/translations/translations';
+	import { locale } from '$lib/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 
 	$: localeName = $locale as LangType;

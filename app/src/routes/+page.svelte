@@ -6,7 +6,7 @@
 	import type { LangType } from '$lib/micro-cms/common';
 	import { fetchCms } from '$lib/micro-cms/fetchCms';
 	import { EYECATCH_COLOR, EYECATCH_URL, PROFILE_URL } from '$lib/micro-cms/ogp';
-	import { locale } from '$lib/translations/translations';
+	import { locale } from '$lib/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 
 	$: localeName = $locale as LangType;

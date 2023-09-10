@@ -20,7 +20,7 @@
 </script>
 
 <script lang="ts">
-	import { locale } from '$lib/translations/translations';
+	import { locale } from '$lib/translations';
 	import { CloseOutlineIcon, Menu2OutlineIcon } from '@robakk08/svelte-evaicons';
 
 	let showMenu = false;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { t } from '$lib/translations/translations';
+	import { t } from '$lib/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 </script>
 
