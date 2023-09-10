@@ -56,21 +56,10 @@
 		}
 	}
 
-	:global(.ja) {
-		&.serif {
-			font-family: fonts.getSerif('ja');
-		}
 	}
 
-	:global(.ko) {
-		&.serif {
-			font-family: fonts.getSerif('ko');
-		}
 	}
 
-	:global(.en) {
-		&.serif {
-			font-family: fonts.getSerif('en');
 		}
 	}
 </style>
