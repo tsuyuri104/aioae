@@ -6,7 +6,6 @@
 	import 'destyle.css/destyle.css';
 	import { getAnalytics } from 'firebase/analytics';
 	import { initializeApp } from 'firebase/app';
-	import { getAuth } from 'firebase/auth';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
@@ -14,7 +13,6 @@
 		if (!dev) {
 			const app = initializeApp(firebaseConfig);
 			getAnalytics(app);
-			getAuth(app);
 		}
 	});
 </script>
