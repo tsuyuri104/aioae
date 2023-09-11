@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { t } from '$lib/translations';
+	import { locale, t } from '$lib/translations';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 </script>
 
@@ -8,7 +8,11 @@
 	<title>{createPageFullTitle('Error')}</title>
 </svelte:head>
 
-<div class="wrapper">
+<div
+	class="wrapper serif"
+	class:ja={$locale === 'ja'}
+	class:ko={$locale === 'ko'}
+>
 	<h1 class="h1">{$page.status}</h1>
 	<p>{$t(`common.error.${$page.status}`)}</p>
 </div>
