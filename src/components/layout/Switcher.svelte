@@ -2,48 +2,46 @@
 	import { locale } from '$lib/translations';
 </script>
 
-<div class="outer">
-	<div class="inner">
-		<input
-			type="radio"
-			name="lang"
-			id="rdoJa"
-			value="ja"
-			bind:group={$locale}
-			aria-label="日本語"
-			class="radio"
-		/>
-		<label for="rdoJa" class="label label-ja ja">
-			<span>あ</span>
-		</label>
-		<input
-			type="radio"
-			name="lang"
-			id="rdoKo"
-			value="ko"
-			bind:group={$locale}
-			aria-label="한국어"
-			class="radio"
-		/>
-		<label for="rdoKo" class="label label-ko ko">
-			<span>가</span>
-		</label>
-		<div class="selected" />
-	</div>
+<div class="wrapper">
+	<input
+		type="radio"
+		name="lang"
+		id="rdoJa"
+		value="ja"
+		class="radio"
+		bind:group={$locale}
+		aria-label="日本語"
+	/>
+	<label
+		for="rdoJa"
+		class="label label-ja ja"
+	>
+		<span>あ</span>
+	</label>
+	<input
+		type="radio"
+		name="lang"
+		id="rdoKo"
+		value="ko"
+		class="radio"
+		bind:group={$locale}
+		aria-label="한국어"
+	/>
+	<label
+		for="rdoKo"
+		class="label label-ko ko"
+	>
+		<span>가</span>
+	</label>
+	<div class="selected" />
 </div>
 
 <style lang="scss">
 	@use 'src/style/colors';
-	@use 'src/style/shadow';
 	@use 'src/style/forms';
+	@use 'src/style/shadow';
 
-	.outer {
-		position: sticky;
-		bottom: 1em;
-		left: 0;
-	}
-
-	.inner {
+	.wrapper {
 		display: flex;
 		flex-direction: column;
 		width: fit-content;
