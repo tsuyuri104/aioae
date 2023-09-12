@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { IconFileDescription, IconMail, IconPencil, IconUser } from '@tabler/icons-svelte';
+	import type { ComponentType } from 'svelte';
 
 	const list: {
 		selected: boolean;
 		href: string;
 		text: string;
-		icon: any;
+		icon: ComponentType;
 	}[] = [
 		{
 			selected: $page.url.pathname === '/',
