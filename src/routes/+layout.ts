@@ -1,4 +1,3 @@
-//REF: https://github.com/sveltekit-i18n/lib
 import { loadTranslations, locale } from '$lib/translations';
 import type { PageLoad } from './$types';
 
