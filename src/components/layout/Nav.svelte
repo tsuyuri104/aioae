@@ -4,31 +4,26 @@
 	import type { ComponentType } from 'svelte';
 
 	const list: {
-		selected: boolean;
 		href: string;
 		text: string;
 		icon: ComponentType;
 	}[] = [
 		{
-			selected: $page.url.pathname === '/',
 			href: '/',
 			text: 'Profile',
 			icon: IconUser,
 		},
 		{
-			selected: $page.url.pathname === '/career',
 			href: '/career',
 			text: 'Career',
 			icon: IconFileDescription,
 		},
 		{
-			selected: $page.url.pathname === '/blog',
 			href: '/blog',
 			text: 'Blog',
 			icon: IconPencil,
 		},
 		{
-			selected: $page.url.pathname === '/links',
 			href: '/links',
 			text: 'Links',
 			icon: IconLink,
@@ -41,7 +36,7 @@
 		{#each list as item}
 			<li
 				class="li"
-				class:selected={item.selected}
+				class:selected={item.href === $page.url.pathname}
 			>
 				<a
 					href={item.href}
