@@ -16,3 +16,20 @@ const config: Config = {
 };
 
 export const { t, locale, locales, loading, loadTranslations } = new i18n(config);
+
+export const getDefaultLanguage = (brawserLang: string | undefined) => {
+	const selectedLang = locale.get();
+	if (selectedLang) {
+		return selectedLang;
+	}
+
+	if (!brawserLang) {
+		return 'ja';
+	}
+
+	if (brawserLang.includes('ko')) {
+		return 'ko';
+	}
+
+	return 'ja';
+};

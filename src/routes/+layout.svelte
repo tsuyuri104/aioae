@@ -1,22 +1,35 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
+	import { page } from '$app/stores';
 	import Footer from '$components/layout/Footer.svelte';
 	import Nav from '$components/layout/Nav.svelte';
 	import Switcher from '$components/layout/Switcher.svelte';
 	import { firebaseConfig } from '$lib/firebase/config';
-	import { locale } from '$lib/translations';
+	import { getDefaultLanguage, loadTranslations, locale } from '$lib/translations';
 	import 'destyle.css/destyle.css';
 	import { getAnalytics } from 'firebase/analytics';
 	import { initializeApp } from 'firebase/app';
 	import { onMount } from 'svelte';
 
-	onMount(() => {
+	onMount(async () => {
 		// Initialize Firebase
 		if (!dev) {
 			const app = initializeApp(firebaseConfig);
 			getAnalytics(app);
 		}
+
+		// Initialize Language
+		await setLanguage();
 	});
+
+	const setLanguage = async () => {
+		const pathname = $page.url.pathname;
+		const brawserLang = window.navigator.language;
+
+		const initLocale = getDefaultLanguage(brawserLang);
+
+		await loadTranslations(initLocale, pathname);
+	};
 </script>
 
 <div class="container">
