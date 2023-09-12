@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { IconFileDescription, IconMail, IconPencil, IconUser } from '@tabler/icons-svelte';
+	import { IconFileDescription, IconLink, IconPencil, IconUser } from '@tabler/icons-svelte';
 	import type { ComponentType } from 'svelte';
 
 	const list: {
@@ -28,10 +28,10 @@
 			icon: IconPencil,
 		},
 		{
-			selected: $page.url.pathname === '/contact',
-			href: '/contact',
-			text: 'Contact',
-			icon: IconMail,
+			selected: $page.url.pathname === '/links',
+			href: '/links',
+			text: 'Links',
+			icon: IconLink,
 		},
 	];
 </script>
