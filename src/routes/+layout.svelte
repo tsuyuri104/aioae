@@ -118,7 +118,7 @@
 		.side {
 			display: flex;
 			flex-direction: column;
-			max-width: 150px;
+			max-width: 180px;
 			position: sticky;
 			order: 1;
 			padding: 1em;

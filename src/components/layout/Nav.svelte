@@ -14,8 +14,8 @@
 			icon: IconUser,
 		},
 		{
-			href: '/career',
-			text: 'Career',
+			href: '/experience',
+			text: 'Experience',
 			icon: IconFileDescription,
 		},
 		{
