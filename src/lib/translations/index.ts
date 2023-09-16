@@ -33,3 +33,9 @@ export const getDefaultLanguage = (brawserLang: string | undefined) => {
 
 	return 'ja';
 };
+
+export type LangText = {
+	ja: string;
+	ko: string;
+};
+export type LangType = keyof LangText;
