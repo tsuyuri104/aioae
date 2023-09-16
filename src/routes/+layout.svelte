@@ -2,7 +2,6 @@
 	import { page } from '$app/stores';
 	import Footer from '$components/layout/Footer.svelte';
 	import Nav from '$components/layout/Nav.svelte';
-	import Switcher from '$components/layout/Switcher.svelte';
 	import { PUBLIC_ENV } from '$env/static/public';
 	import { Firebase } from '$lib/firebase';
 	import { getDefaultLanguage, loadTranslations, locale } from '$lib/translations';
@@ -46,12 +45,7 @@
 		</div>
 
 		<aside class="side">
-			<div class="nav">
-				<Nav />
-			</div>
-			<div class="switcher">
-				<Switcher />
-			</div>
+			<Nav />
 		</aside>
 	</div>
 </div>
@@ -90,18 +84,6 @@
 		flex-direction: column;
 	}
 
-	.nav {
-		order: 2;
-	}
-
-	.switcher {
-		order: 1;
-		width: fit-content;
-		position: relative;
-		left: 0.5em;
-		bottom: 0.5em;
-	}
-
 	@container (width > 400px) {
 		.outer {
 			display: flex;
@@ -122,18 +104,6 @@
 			row-gap: 1em;
 			position: sticky;
 			top: 0;
-		}
-
-		.nav {
-			order: 1;
-		}
-
-		.switcher {
-			order: 2;
-			display: flex;
-			flex-direction: row;
-			justify-content: end;
-			width: 100%;
 		}
 	}
 </style>

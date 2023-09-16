@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { locale, t } from '$lib/translations';
 	import { IconFileDescription, IconLink, IconPencil, IconUser } from '@tabler/icons-svelte';
 	import type { ComponentType } from 'svelte';
 
@@ -29,10 +30,27 @@
 			icon: IconLink,
 		},
 	];
+
+	function switchLang() {
+		if ($locale === 'ja') {
+			locale.set('ko');
+		} else {
+			locale.set('ja');
+		}
+	}
 </script>
 
 <nav class="container">
 	<ul class="ul">
+		<li class="li">
+			<button
+				type="button"
+				class="button"
+				on:click={switchLang}
+			>
+				{$t('common.nav.langButton')}
+			</button>
+		</li>
 		{#each list as item}
 			{@const selected = item.href === $page.url.pathname}
 			<li
@@ -67,6 +85,13 @@
 		column-gap: 1em;
 		border-top: 1px solid colors.get('beige', 'border');
 		background-color: colors.get('beige', 'bg-light');
+	}
+
+	.button {
+		font-size: 1em;
+		background-color: colors.get('green', 'bg-light');
+		padding: 0.5em;
+		border-radius: 0.5em;
 	}
 
 	.selected {
