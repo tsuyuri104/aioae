@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { BASE_URL, OGP_NOMAL } from '$lib/micro-cms/const';
 	import { createPageFullTitle } from '$lib/utilities/creater';
 
 	export let title = '';
-	export let thambnail = '';
+
+	const thambnail = `${BASE_URL}${OGP_NOMAL}?w=630`;
 </script>
 
 <svelte:head>
