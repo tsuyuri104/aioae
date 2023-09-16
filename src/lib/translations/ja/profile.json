@@ -1,5 +1,21 @@
 {
   "icon": {
     "alt": "うさぎのアイコン"
+  },
+  "skills": {
+    "title": {
+      "certification": "資格",
+      "pg": "プログラミング言語/フレームワーク",
+      "position": "ポジション"
+    },
+    "subTitle": {
+      "experienceYear": "経験年数",
+      "lastUsed": "最終使用",
+      "using": "使用中",
+      "used": "使用経験あり"
+    },
+    "unit": {
+      "year": "年"
+    }
   }
 }

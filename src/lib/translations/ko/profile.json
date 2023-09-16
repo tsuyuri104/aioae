@@ -1,5 +1,21 @@
 {
   "icon": {
     "alt": "도끼 프로필 사진"
+  },
+  "skills": {
+    "title": {
+      "certification": "자격증",
+      "pg": "프로그래밍 언어/프레임워크",
+      "position": "직무"
+    },
+    "subTitle": {
+      "experienceYear": "경험 연수",
+      "lastUsed": "마자막 사용",
+      "using": "사용중",
+      "used": "사용한 경험 있음"
+    },
+    "unit": {
+      "year": "년"
+    }
   }
 }
