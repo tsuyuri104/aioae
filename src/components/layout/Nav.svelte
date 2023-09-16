@@ -66,6 +66,7 @@
 		align-items: center;
 		column-gap: 1em;
 		border-top: 1px solid colors.get('beige', 'border');
+		background-color: colors.get('beige', 'bg-light');
 	}
 
 	.selected {
