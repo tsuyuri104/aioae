@@ -116,10 +116,12 @@
 			display: flex;
 			flex-direction: column;
 			max-width: 180px;
-			position: sticky;
+			height: fit-content;
 			order: 1;
 			padding: 1em;
 			row-gap: 1em;
+			position: sticky;
+			top: 0;
 		}
 
 		.nav {
