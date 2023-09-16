@@ -1,7 +1,7 @@
 <script lang="ts">
+	import LastUpdate from '$components/common/LastUpdate.svelte';
 	import List from '$components/common/List.svelte';
 	import TextLink from '$components/common/TextLink.svelte';
-	import UpdateDate from '$components/common/UpdateDate.svelte';
 	import Tag from '$components/layout/Tag.svelte';
 	import { Firebase } from '$lib/firebase';
 	import type { Basic } from '$lib/firebase/dto/basic';
@@ -160,7 +160,7 @@
 			<List list={data.certification.map((x) => `${x.name} (${x.year})`)} />
 		{/await}
 
-		<UpdateDate promise={promiseSkill} />
+		<LastUpdate promise={promiseSkill} />
 	</section>
 </article>
 
