@@ -1,4 +1,4 @@
-import type { Common, Lang } from '$lib/micro-cms/common';
+import type { Common, Lang } from '$lib/micro-cms/dao/common';
 import {
 	CameraOutlineIcon,
 	EditOutlineIcon,
@@ -6,7 +6,7 @@ import {
 	HeartOutlineIcon,
 	ShoppingCartOutlineIcon,
 	TwitterOutlineIcon,
-	VideoOutlineIcon
+	VideoOutlineIcon,
 } from '@robakk08/svelte-evaicons';
 
 export type Links = Common & {
@@ -34,7 +34,7 @@ export const IconComponents = new Map<IconTypes, any>([
 	['ShoppingCart', ShoppingCartOutlineIcon],
 	['Edit', EditOutlineIcon],
 	['Camera', CameraOutlineIcon],
-	['Heart', HeartOutlineIcon]
+	['Heart', HeartOutlineIcon],
 ]);
 
 export type CategoryTypes = undefined | 'SNS' | 'Programming';

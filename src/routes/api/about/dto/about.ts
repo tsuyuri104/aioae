@@ -1,12 +1,12 @@
-import type { Common, Lang } from "$lib/micro-cms/common";
+import type { Common, Lang } from '$lib/micro-cms/dao/common';
 
 export type About = Common & {
-  name: Lang;
+	name: Lang;
 	realName: Lang;
 	title: Lang;
 	prod: {
 		url: string;
 		title: Lang[];
 		text: Lang[];
-	}[]
+	}[];
 };
