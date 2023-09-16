@@ -5,9 +5,3 @@ export type Common = {
 	publishedAt: string;
 	revisedAt: string;
 };
-
-export type Lang = {
-	ja: string;
-	ko: string;
-};
-export type LangType = keyof Lang;
