@@ -2,14 +2,14 @@
 	import { page } from '$app/stores';
 	import Footer from '$components/layout/Footer.svelte';
 	import Nav from '$components/layout/Nav.svelte';
-	import { PUBLIC_ENV } from '$env/static/public';
+	import { env } from '$env/dynamic/public';
 	import { Firebase } from '$lib/firebase';
 	import { getDefaultLanguage, loadTranslations, locale } from '$lib/translations';
 	import 'destyle.css/destyle.css';
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
-		if (PUBLIC_ENV === 'PROD') {
+		if (env.PUBLIC_ENV === 'PROD') {
 			// Initialize Firebase
 			Firebase.initAnalytics();
 		}
