@@ -8,9 +8,19 @@ const config: Config = {
 			loader: async () => (await import('./ko/common.json')).default,
 		},
 		{
+			locale: 'ko',
+			key: 'profile',
+			loader: async () => (await import('./ko/profile.json')).default,
+		},
+		{
 			locale: 'ja',
 			key: 'common',
 			loader: async () => (await import('./ja/common.json')).default,
+		},
+		{
+			locale: 'ja',
+			key: 'profile',
+			loader: async () => (await import('./ja/profile.json')).default,
 		},
 	],
 };
