@@ -34,9 +34,10 @@
 <nav class="container">
 	<ul class="ul">
 		{#each list as item}
+			{@const selected = item.href === $page.url.pathname}
 			<li
 				class="li"
-				class:selected={item.href === $page.url.pathname}
+				class:selected
 			>
 				<a
 					href={item.href}
