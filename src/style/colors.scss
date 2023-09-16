@@ -17,8 +17,9 @@ $green: (
 	light: #a8e2e4,
 	bg-light: #a8e2e4,
 	bg-dark: #50c4c8,
-	text: #50c4c8,
-	border: #89b8e4,
+	text: darken(#50c4c8, 10%),
+	border: #50c4c8,
+	hover: rgba(lighten(#50c4c8, 10%), 20%),
 );
 $purple: (
 	base: #f3f3ff,

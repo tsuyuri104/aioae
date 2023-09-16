@@ -13,12 +13,12 @@
 	@use 'src/style/colors';
 
 	.link {
-		color: colors.get('blue', 'text');
+		color: colors.get('green', 'text');
 		font-weight: 300;
 		padding: 0.5em;
 		border-radius: 0.5em;
 		&:hover {
-			background-color: colors.get('blue', 'hover');
+			background-color: colors.get('green', 'hover');
 		}
 	}
 </style>
