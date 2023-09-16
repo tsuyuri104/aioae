@@ -7,9 +7,10 @@ $beige: (
 $blue: (
 	base: #89b8e4,
 	light: #c4dcf2,
-	text: #89b8e4,
+	text: darken(#89b8e4, 10%),
 	border: #89b8e4,
 	outline: #005fcc,
+	hover: rgba(lighten(#89b8e4, 10%), 20%),
 );
 $green: (
 	base: #50c4c8,
