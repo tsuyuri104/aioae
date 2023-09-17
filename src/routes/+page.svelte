@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Card from '$components/common/Card.svelte';
 	import LastUpdate from '$components/common/LastUpdate.svelte';
+	import H1 from '$components/element/H1EnHanddraw.svelte';
 	import List from '$components/element/List.svelte';
 	import TextLink from '$components/element/TextLink.svelte';
 	import Tag from '$components/layout/Tag.svelte';
@@ -93,7 +94,7 @@
 	class:ko={lang === 'ko'}
 >
 	<section class="section">
-		<h1 class="h1">Profile</h1>
+		<H1>Profile</H1>
 		<img
 			src={profileIcon}
 			alt={$t('profile.icon.alt')}
@@ -120,7 +121,7 @@
 		</div>
 	</section>
 	<section class="section">
-		<h1 class="h1">Apps</h1>
+		<H1>Apps</H1>
 		{#await promisePublications then data}
 			<div class="card-wrapper">
 				{#each data as datum}
@@ -140,7 +141,7 @@
 		{/await}
 	</section>
 	<section class="section">
-		<h1 class="h1">Skills</h1>
+		<H1>Skills</H1>
 
 		<h2 class="h2">{$t('profile.skills.title.pg')}</h2>
 		<h3 class="h3">{$t('profile.skills.subTitle.using')}</h3>
@@ -210,12 +211,6 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 1em;
-	}
-
-	.h1 {
-		@extend .en;
-		@extend .handdraw;
-		font-size: 2em;
 	}
 
 	.h2 {
