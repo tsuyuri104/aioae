@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Card from '$components/common/Card.svelte';
 	import LastUpdate from '$components/common/LastUpdate.svelte';
 	import List from '$components/common/List.svelte';
 	import TextLink from '$components/common/TextLink.svelte';
@@ -6,6 +7,7 @@
 	import { Firebase } from '$lib/firebase';
 	import type { Basic } from '$lib/firebase/dao/basic';
 	import type { Link } from '$lib/firebase/dao/link';
+	import type { Publications } from '$lib/firebase/dao/publications';
 	import type { Certification, Pg, Position, Skill } from '$lib/firebase/dao/skill';
 	import { PROFILE_URL } from '$lib/micro-cms/const';
 	import type { LangType } from '$lib/translations';
@@ -68,10 +70,19 @@
 		};
 	}
 
+	async function getPublications(): Promise<Publications[]> {
+		const q = query(collection(db, 'publications'));
+		const snap = await getDocs(q);
+		const data = <Publications[]>[];
+		snap.forEach((doc) => data.push(<Publications>doc.data()));
+		return data;
+	}
+
 	const profileIcon = `${PROFILE_URL}?w=150`;
 	let promiseProfile = getProfileData();
 	let promiseLink = getLinkData();
 	let promiseSkill = getSkillData();
+	let promisePublications = getPublications();
 </script>
 
 <Tag title="Profile" />
@@ -107,6 +118,26 @@
 				{/each}
 			{/await}
 		</div>
+	</section>
+	<section class="section">
+		<h1 class="h1">Apps</h1>
+		{#await promisePublications then data}
+			<div class="card-wrapper">
+				{#each data as datum}
+					<Card>
+						<TextLink
+							href={datum.url}
+							slot="header"
+						>
+							{datum.name}
+						</TextLink>
+						<p slot="body">
+							{datum.description[lang]}
+						</p>
+					</Card>
+				{/each}
+			</div>
+		{/await}
 	</section>
 	<section class="section">
 		<h1 class="h1">Skills</h1>
@@ -209,5 +240,11 @@
 		display: flex;
 		flex-direction: row;
 		column-gap: 1em;
+	}
+
+	.card-wrapper {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		grid-gap: 1em;
 	}
 </style>
