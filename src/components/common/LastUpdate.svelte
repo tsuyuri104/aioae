@@ -4,11 +4,15 @@
 	import { calcDiffDays, toDateTypeFromTimestamp } from '$lib/utilities/dateTimestamp';
 
 	export let promise: Promise<Common>;
+	export let heading: string;
 	const today = new Date();
 </script>
 
 <div class="wrapper">
 	<p class="p">
+		<span class="span">
+			{heading}
+		</span>
 		<span class="span">
 			{$t('common.lastUpdate.title')}
 		</span>

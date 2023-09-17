@@ -188,7 +188,10 @@
 			<List list={data.certification.map((x) => `${x.name} (${x.year})`)} />
 		{/await}
 
-		<LastUpdate promise={promiseSkill} />
+		<LastUpdate
+			heading={'Skills'}
+			promise={promiseSkill}
+		/>
 	</section>
 </article>
 
