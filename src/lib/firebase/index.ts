@@ -1,25 +1,17 @@
-import {
-	PUBLIC_FIREBASE_API_KEY,
-	PUBLIC_FIREBASE_APP_ID,
-	PUBLIC_FIREBASE_AUTH_DOMAIN,
-	PUBLIC_FIREBASE_MEASUREMENT_ID,
-	PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-	PUBLIC_FIREBASE_PROJECT_ID,
-	PUBLIC_FIREBASE_STORAGE_BUCKET,
-} from '$env/static/public';
+import { env } from '$env/dynamic/public';
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 export namespace Firebase {
 	export const config = {
-		apiKey: PUBLIC_FIREBASE_API_KEY,
-		authDomain: PUBLIC_FIREBASE_AUTH_DOMAIN,
-		projectId: PUBLIC_FIREBASE_PROJECT_ID,
-		storageBucket: PUBLIC_FIREBASE_STORAGE_BUCKET,
-		messagingSenderId: PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-		appId: PUBLIC_FIREBASE_APP_ID,
-		measurementId: PUBLIC_FIREBASE_MEASUREMENT_ID,
+		apiKey: env.PUBLIC_FIREBASE_API_KEY,
+		authDomain: env.PUBLIC_FIREBASE_AUTH_DOMAIN,
+		projectId: env.PUBLIC_FIREBASE_PROJECT_ID,
+		storageBucket: env.PUBLIC_FIREBASE_STORAGE_BUCKET,
+		messagingSenderId: env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+		appId: env.PUBLIC_FIREBASE_APP_ID,
+		measurementId: env.PUBLIC_FIREBASE_MEASUREMENT_ID,
 	};
 
 	export function initAnalytics() {
