@@ -4,15 +4,17 @@ import { createClient, type MicroCMSListResponse } from 'microcms-js-sdk';
 export type EndpointTypes = 'links' | 'about' | 'blog';
 
 export const _getData = async <T>(
-  endpoint: EndpointTypes,
-  queries:{
-  limit?: number,
-  filters?: string[],
-	order?: string,
-}): Promise<MicroCMSListResponse<T>> => {
+	endpoint: EndpointTypes,
+	queries: {
+		limit?: number;
+		filters?: string[];
+		order?: string;
+		offset?: number;
+	}
+): Promise<MicroCMSListResponse<T>> => {
 	const client = createClient({
-		serviceDomain: env.API_DOMAIN,
-		apiKey: env.API_KEY_LINKS,
+		serviceDomain: env.MICROCMS_API_DOMAIN,
+		apiKey: env.MICROCMS_API_KEY,
 	});
 
 	return await client.getList<T>({
@@ -21,6 +23,7 @@ export const _getData = async <T>(
 			filters: queries.filters ? queries.filters.join(',') : '',
 			limit: queries.limit,
 			orders: queries.order ? queries.order : '',
-		}
+			offset: queries.offset ?? 0,
+		},
 	});
 };
