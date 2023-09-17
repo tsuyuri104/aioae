@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Common } from '$lib/firebase/dto/common';
+	import type { Common } from '$lib/firebase/dao/common';
 	import { t } from '$lib/translations';
 	import { calcDiffDays, toDateTypeFromTimestamp } from '$lib/utilities/dateTimestamp';
 

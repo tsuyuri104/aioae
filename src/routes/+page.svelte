@@ -4,9 +4,9 @@
 	import TextLink from '$components/common/TextLink.svelte';
 	import Tag from '$components/layout/Tag.svelte';
 	import { Firebase } from '$lib/firebase';
-	import type { Basic } from '$lib/firebase/dto/basic';
-	import type { Link } from '$lib/firebase/dto/link';
-	import type { Certification, Pg, Position, Skill } from '$lib/firebase/dto/skill';
+	import type { Basic } from '$lib/firebase/dao/basic';
+	import type { Link } from '$lib/firebase/dao/link';
+	import type { Certification, Pg, Position, Skill } from '$lib/firebase/dao/skill';
 	import { PROFILE_URL } from '$lib/micro-cms/const';
 	import type { LangType } from '$lib/translations';
 	import { locale, t } from '$lib/translations';
