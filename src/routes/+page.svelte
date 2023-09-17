@@ -103,10 +103,7 @@
 		<div class="links">
 			{#await promiseLink then data}
 				{#each data as datum}
-					<TextLink
-						href={datum.url}
-						text={datum.title[lang]}
-					/>
+					<TextLink href={datum.url}>{datum.title[lang]}</TextLink>
 				{/each}
 			{/await}
 		</div>
