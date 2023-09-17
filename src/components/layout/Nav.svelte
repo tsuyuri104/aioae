@@ -83,7 +83,7 @@
 		justify-content: space-evenly;
 		align-items: center;
 		column-gap: 1em;
-		border-top: 1px solid colors.get('beige', 'border');
+		border-bottom: 1px solid colors.get('beige', 'border');
 		background-color: colors.get('beige', 'bg-light');
 	}
 
@@ -124,7 +124,7 @@
 			justify-content: start;
 			align-items: start;
 			row-gap: 1em;
-			border-top: none;
+			border-bottom: none;
 		}
 
 		.li {

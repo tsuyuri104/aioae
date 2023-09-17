@@ -30,6 +30,9 @@
 
 <div class="container">
 	<div class="outer">
+		<aside class="side">
+			<Nav />
+		</aside>
 		<div
 			class="inner serif"
 			class:ja={$locale === 'ja'}
@@ -43,10 +46,6 @@
 				<Footer />
 			</div>
 		</div>
-
-		<aside class="side">
-			<Nav />
-		</aside>
 	</div>
 </div>
 
@@ -78,10 +77,7 @@
 	.side {
 		width: 100%;
 		position: sticky;
-		bottom: 0;
-		left: 0;
-		display: flex;
-		flex-direction: column;
+		top: 0;
 	}
 
 	@container (width > 400px) {
