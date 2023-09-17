@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Card from '$components/common/Card.svelte';
 	import LastUpdate from '$components/common/LastUpdate.svelte';
-	import List from '$components/common/List.svelte';
-	import TextLink from '$components/common/TextLink.svelte';
+	import List from '$components/element/List.svelte';
+	import TextLink from '$components/element/TextLink.svelte';
 	import Tag from '$components/layout/Tag.svelte';
 	import { Firebase } from '$lib/firebase';
 	import type { Basic } from '$lib/firebase/dao/basic';
