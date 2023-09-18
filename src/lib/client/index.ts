@@ -1,4 +1,4 @@
-export const fetchCms = async <T>(path: string): Promise<T> => {
+export const fetchApi = async <T>(path: string): Promise<T> => {
 	let res = await fetch(`/api/${path}`);
 
 	if (res.status !== 200) {
