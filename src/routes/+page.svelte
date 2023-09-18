@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Card from '$components/common/Card.svelte';
-	import LastUpdate from '$components/common/LastUpdate.svelte';
-	import H1 from '$components/element/H1EnHanddraw.svelte';
+	import H1 from '$components/common/H1EnHanddraw.svelte';
 	import List from '$components/element/List.svelte';
 	import TextLink from '$components/element/TextLink.svelte';
 	import Tag from '$components/layout/Tag.svelte';
+	import Card from '$components/profile/Card.svelte';
+	import LastUpdate from '$components/profile/LastUpdate.svelte';
 	import { Firebase } from '$lib/firebase';
 	import type { Basic } from '$lib/firebase/dao/basic';
 	import type { Link } from '$lib/firebase/dao/link';
