@@ -1,7 +1,7 @@
 import { env } from '$env/dynamic/private';
 import { createClient, type MicroCMSListResponse } from 'microcms-js-sdk';
 
-export type EndpointTypes = 'links' | 'about' | 'blog';
+export type EndpointTypes = 'blog';
 
 export const _getData = async <T>(
 	endpoint: EndpointTypes,
