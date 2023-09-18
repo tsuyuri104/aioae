@@ -6,6 +6,6 @@ export type Blog = Common & {
 	content: string;
 	summary: string;
 	lang: LangType;
-	tags: string;
 	category: string;
+	tags: string[];
 };
