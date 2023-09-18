@@ -2,6 +2,7 @@ $beige: (
 	bg-light: #efebe3,
 	hover: rgba(lighten(#efebe3, 10%), 20%),
 	text: #63564d,
+	text-light: lighten(#63564d, 20%),
 	border: #b09f82,
 );
 $blue: (
@@ -15,7 +16,7 @@ $blue: (
 $green: (
 	base: #50c4c8,
 	light: #a8e2e4,
-	bg-light: #a8e2e4,
+	bg-light: lighten(#a8e2e4, 10%),
 	bg-dark: #50c4c8,
 	text: darken(#50c4c8, 10%),
 	border: #50c4c8,
