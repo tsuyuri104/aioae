@@ -22,12 +22,12 @@
 			{:then data}
 				{@const date = toDateTypeFromTimestamp(data.updated)}
 				{@const diffDays = calcDiffDays(today, data.updated.toDate())}
-				{date.year}{$t('common.lastUpdate.year')}
+				{date.year}{$t('common.unit.year')}
 				{#if diffDays < 700}
-					{date.month}{$t('common.lastUpdate.month')}
+					{date.month}{$t('common.unit.month')}
 				{/if}
 				{#if diffDays < 100}
-					{date.day}{$t('common.lastUpdate.day')}
+					{date.day}{$t('common.unit.day')}
 				{/if}
 			{/await}
 		</span>
