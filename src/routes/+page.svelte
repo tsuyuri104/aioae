@@ -164,7 +164,7 @@
 							`${x.name} (` +
 							$t('profile.skills.subTitle.experienceYear') +
 							` ${x.experience_year}` +
-							$t('profile.skills.unit.year') +
+							$t('common.unit.year') +
 							`)`
 					)}
 			/>
@@ -178,7 +178,7 @@
 						`${x.name[lang]} (` +
 						$t('profile.skills.subTitle.experienceYear') +
 						` ${x.experience_year}` +
-						$t('profile.skills.unit.year') +
+						$t('common.unit.year') +
 						`)`
 				)}
 			/>
@@ -186,7 +186,9 @@
 
 		<h2 class="h2">{$t('profile.skills.title.certification')}</h2>
 		{#await promiseSkill then data}
-			<List list={data.certification.map((x) => `${x.name} (${x.year})`)} />
+			<List
+				list={data.certification.map((x) => `${x.name} (${x.year}` + $t('common.unit.year') + `)`)}
+			/>
 		{/await}
 
 		<LastUpdate
