@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import PublishDate from '$components/blog/PublishDate.svelte';
 	import H1 from '$components/common/H1EnHanddraw.svelte';
 	import Tag from '$components/layout/Tag.svelte';
 	import { fetchApi } from '$lib/client/index';
 	import type { Blog } from '$lib/micro-cms/dao/blog';
-	import { t } from '$lib/translations';
-	import { toDateType } from '$lib/utilities/dateTimestamp';
 	import type { MicroCMSListResponse } from 'microcms-js-sdk';
 
 	async function getBlogList() {
@@ -24,7 +23,6 @@
 		<div class="card-wrapper">
 			{#await promise then data}
 				{#each data.contents as blog}
-					{@const date = toDateType(new Date(blog.publishedAt))}
 					<a href={`/blog/${blog.id}`}>
 						<div
 							class="card serif"
@@ -44,11 +42,7 @@
 										<span class="tag">{tag}</span>
 									{/each}
 								</div>
-								<p class="date">
-									{date.year}{$t('common.unit.year')}{date.month}{$t(
-										'common.unit.month'
-									)}{date.day}{$t('common.unit.day')}
-								</p>
+								<PublishDate publishedAt={blog.publishedAt} />
 							</div>
 						</div>
 					</a>
@@ -126,11 +120,5 @@
 		&::before {
 			content: '#';
 		}
-	}
-
-	.date {
-		font-size: 0.8em;
-		text-align: right;
-		color: colors.get('beige', 'text-light');
 	}
 </style>
