@@ -1,50 +1,28 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import PublishDate from '$components/blog/PublishDate.svelte';
 	import Tag from '$components/blog/Tag.svelte';
-	import Error from '$components/layout/Error.svelte';
-	import { fetchApi } from '$lib/client/index';
-	import type { Blog } from '$lib/micro-cms/dao/blog';
-	import { error } from '@sveltejs/kit';
-	import type { MicroCMSListResponse } from 'microcms-js-sdk';
+	import type { PageData } from './$types';
 
-	async function getBlogData() {
-		const id = $page.params.id;
-		const data = await fetchApi<MicroCMSListResponse<Blog>>(`blog/byId/${id}`);
-		if (data.totalCount === 0) {
-			throw error(404);
-		}
-		return data;
-	}
-
-	let promise = getBlogData();
+	export let data: PageData;
+	let blog = data.contents[0];
 </script>
 
-{#await promise then data}
-	{@const blog = data.contents[0]}
-	<Tag
-		title={blog.title}
-		summary={blog.summary}
-	/>
-{/await}
+<Tag
+	title={blog.title}
+	summary={blog.summary}
+/>
 
 <article class="article">
-	{#await promise then data}
-		{@const blog = data.contents[0]}
-
-		<section
-			class="section blog-article serif"
-			class:ja={blog.lang[0] === 'ja'}
-			class:ko={blog.lang[0] === 'ko'}
-		>
-			<PublishDate publishedAt={blog.publishedAt} />
-			<h1>{blog.title}</h1>
-			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-			{@html blog.content}
-		</section>
-	{:catch}
-		<Error status={404} />
-	{/await}
+	<section
+		class="section blog-article serif"
+		class:ja={blog.lang[0] === 'ja'}
+		class:ko={blog.lang[0] === 'ko'}
+	>
+		<PublishDate publishedAt={blog.publishedAt} />
+		<h1>{blog.title}</h1>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+		{@html blog.content}
+	</section>
 </article>
 
 <style lang="scss">
