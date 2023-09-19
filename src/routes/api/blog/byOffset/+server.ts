@@ -1,4 +1,4 @@
-import { _getData } from '$api/+server';
+import { _getMicroCmsData } from '$lib/micro-cms/+server';
 import type { Blog } from '$lib/micro-cms/dao/blog';
 import { json } from '@sveltejs/kit';
 
@@ -9,7 +9,7 @@ export async function GET({ url }) {
 
 	// NEXT : タグ検索、カテゴリ検索、ワード検索ができるようにする
 
-	const data = await _getData<Blog>('blog', { limit, order, offset });
+	const data = await _getMicroCmsData<Blog>('blog', { limit, order, offset });
 
 	return json(data);
 }

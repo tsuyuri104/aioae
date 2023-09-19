@@ -3,7 +3,7 @@ import { createClient, type MicroCMSListResponse } from 'microcms-js-sdk';
 
 export type EndpointTypes = 'blog';
 
-export const _getData = async <T>(
+export const _getMicroCmsData = async <T>(
 	endpoint: EndpointTypes,
 	queries: {
 		limit?: number;
