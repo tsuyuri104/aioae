@@ -42,12 +42,12 @@
 			line-height: var(--line-height);
 		}
 		:global(h2) {
-			font-weight: 400em;
+			font-weight: 300em;
 			font-size: 1.2em;
 			line-height: var(--line-height);
 		}
 		:global(h3) {
-			font-weight: 400;
+			font-weight: 300;
 			font-size: 1em;
 			line-height: var(--line-height);
 		}
@@ -69,6 +69,9 @@
 			&::marker {
 				color: colors.get('blue', 'text');
 			}
+		}
+		:global(a) {
+			color: colors.get('green', 'text');
 		}
 	}
 </style>
