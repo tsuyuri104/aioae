@@ -20,7 +20,6 @@
 	>
 		<PublishDate publishedAt={blog.publishedAt} />
 		<h1>{blog.title}</h1>
-		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html blog.content}
 	</section>
 </article>
