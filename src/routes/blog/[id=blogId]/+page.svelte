@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PublishDate from '$components/blog/PublishDate.svelte';
 	import Tag from '$components/blog/Tag.svelte';
+	import { setOgp } from '$lib/client/action/setOgp';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -17,6 +18,7 @@
 		class="section blog-article serif"
 		class:ja={blog.lang[0] === 'ja'}
 		class:ko={blog.lang[0] === 'ko'}
+		use:setOgp
 	>
 		<PublishDate publishedAt={blog.publishedAt} />
 		<h1>{blog.title}</h1>
@@ -71,6 +73,10 @@
 		}
 		:global(a) {
 			color: colors.get('green', 'text');
+		}
+		:global(.ogp) {
+			width: 100%;
+			height: auto;
 		}
 	}
 </style>
