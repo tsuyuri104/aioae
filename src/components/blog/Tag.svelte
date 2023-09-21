@@ -71,4 +71,16 @@
 		property="og:image"
 		content={thambnail.href + thambnail.search}
 	/>
+	<meta
+		property="og:image:alt"
+		content={createPageFullTitle(title)}
+	/>
+	<meta
+		property="og:image:width"
+		content="1200"
+	/>
+	<meta
+		property="og:image:height"
+		content="630"
+	/>
 </svelte:head>
