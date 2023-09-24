@@ -1,12 +1,29 @@
 <script lang="ts">
+	import type { LangText, LangType } from '$lib/translations';
+	import { locale } from '$lib/translations';
+	import TextLink from './TextLink.svelte';
+
+	$: lang = $locale as LangType;
+
+	export let href: string;
+	export let text: LangText | string;
+	export let description: LangText | undefined;
 </script>
 
 <div class="card">
 	<div class="header">
-		<slot name="header" />
+		<TextLink {href}>
+			{#if typeof text === 'string'}
+				{text}
+			{:else}
+				{text[lang]}
+			{/if}
+		</TextLink>
 	</div>
 	<div class="body">
-		<slot name="body" />
+		{#if description}
+			<p>{description[lang]}</p>
+		{/if}
 	</div>
 </div>
 

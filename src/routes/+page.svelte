@@ -1,10 +1,10 @@
 <script lang="ts">
 	import H1 from '$components/common/H1EnHanddraw.svelte';
+	import LinkCard from '$components/common/LinkCard.svelte';
+	import TextLink from '$components/common/TextLink.svelte';
 	import Tag from '$components/layout/Tag.svelte';
-	import Card from '$components/profile/Card.svelte';
 	import LastUpdate from '$components/profile/LastUpdate.svelte';
 	import List from '$components/profile/List.svelte';
-	import TextLink from '$components/profile/TextLink.svelte';
 	import { Firebase } from '$lib/firebase';
 	import type { Basic } from '$lib/firebase/dao/basic';
 	import type { Link } from '$lib/firebase/dao/link';
@@ -125,17 +125,11 @@
 		{#await promisePublications then data}
 			<div class="card-wrapper">
 				{#each data as datum}
-					<Card>
-						<TextLink
-							href={datum.url}
-							slot="header"
-						>
-							{datum.name}
-						</TextLink>
-						<p slot="body">
-							{datum.description[lang]}
-						</p>
-					</Card>
+					<LinkCard
+						href={datum.url}
+						text={datum.name}
+						description={datum.description}
+					/>
 				{/each}
 			</div>
 		{/await}
