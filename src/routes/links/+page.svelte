@@ -47,7 +47,7 @@
 	let promiseLink = getLinkData();
 </script>
 
-<Tag title="Profile" />
+<Tag title="Links" />
 
 <article
 	class="article sans"
