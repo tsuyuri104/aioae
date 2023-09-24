@@ -18,6 +18,11 @@ const config: Config = {
 			loader: async () => (await import('./ko/blog.json')).default,
 		},
 		{
+			locale: 'ko',
+			key: 'links',
+			loader: async () => (await import('./ko/links.json')).default,
+		},
+		{
 			locale: 'ja',
 			key: 'common',
 			loader: async () => (await import('./ja/common.json')).default,
@@ -31,6 +36,11 @@ const config: Config = {
 			locale: 'ja',
 			key: 'blog',
 			loader: async () => (await import('./ja/blog.json')).default,
+		},
+		{
+			locale: 'ja',
+			key: 'links',
+			loader: async () => (await import('./ja/links.json')).default,
 		},
 	],
 };

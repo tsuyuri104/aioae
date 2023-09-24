@@ -20,11 +20,11 @@
 			{/if}
 		</TextLink>
 	</div>
-	<div class="body">
-		{#if description}
+	{#if description && description[lang]}
+		<div class="body">
 			<p>{description[lang]}</p>
-		{/if}
-	</div>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">

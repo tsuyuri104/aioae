@@ -5,4 +5,6 @@ export type Link = {
 	description: LangText;
 	title: LangText;
 	url: string;
+	on_top: boolean;
+	visible: boolean;
 };
