@@ -48,6 +48,8 @@
 					</a>
 				{/each}
 			{/await}
+			{:else}
+				<p>{$t('blog.error.not_found')}</p>
 		</div>
 	</section>
 </article>
