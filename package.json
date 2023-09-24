@@ -14,7 +14,8 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"hosting:preview": "firebase hosting:channel:deploy preview_jgsg --expires 1h"
+		"hosting:preview": "firebase hosting:channel:deploy preview_jgsg --expires 1h",
+		"store:index": "firebase firestore:indexes > firestore.indexes.json"
 	},
 	"devDependencies": {
 		"@markuplint/svelte-parser": "^3.9.1",
