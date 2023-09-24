@@ -65,8 +65,9 @@
 	}
 
 	.inner {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr auto;
 		row-gap: 2em;
 		width: 100svw;
 		max-width: 400px;
