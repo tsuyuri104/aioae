@@ -24,20 +24,20 @@
 		where,
 	} from 'firebase/firestore';
 
-	$: lang = <LangType>$locale;
+	$: lang = $locale as LangType;
 
 	const db = Firebase.initFirestore();
 	async function getProfileData(): Promise<Basic> {
 		const ref = doc(db, 'profile', 'basic');
 		const snap = await getDoc(ref);
-		return <Basic>snap.data();
+		return snap.data() as Basic;
 	}
 
 	async function getLinkData(): Promise<Link[]> {
 		const q = query(collection(db, 'links'), where('on_top', '==', true));
 		const snap = await getDocs(q);
-		const data = <Link[]>[];
-		snap.forEach((doc) => data.push(<Link>doc.data()));
+		const data: Link[] = [];
+		snap.forEach((doc) => data.push(doc.data() as Link));
 		return data;
 	}
 
@@ -54,14 +54,14 @@
 			getDocs(qposition),
 		]);
 
-		const dataCertification = <Certification[]>[];
-		snapCertification.forEach((doc) => dataCertification.push(<Certification>doc.data()));
+		const dataCertification: Certification[] = [];
+		snapCertification.forEach((doc) => dataCertification.push(doc.data() as Certification));
 
-		const dataPg = <Pg[]>[];
-		snapPg.forEach((doc) => dataPg.push(<Pg>doc.data()));
+		const dataPg: Pg[] = [];
+		snapPg.forEach((doc) => dataPg.push(doc.data() as Pg));
 
-		const dataPosition = <Position[]>[];
-		snapPosition.forEach((doc) => dataPosition.push(<Position>doc.data()));
+		const dataPosition: Position[] = [];
+		snapPosition.forEach((doc) => dataPosition.push(doc.data() as Position));
 
 		return {
 			certification: dataCertification,
@@ -74,8 +74,8 @@
 	async function getPublications(): Promise<Publications[]> {
 		const q = query(collection(db, 'publications'));
 		const snap = await getDocs(q);
-		const data = <Publications[]>[];
-		snap.forEach((doc) => data.push(<Publications>doc.data()));
+		const data: Publications[] = [];
+		snap.forEach((doc) => data.push(doc.data() as Publications));
 		return data;
 	}
 
