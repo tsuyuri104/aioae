@@ -1,4 +1,5 @@
 <script lang="ts">
+	import HashTags from '$components/blog/HashTags.svelte';
 	import PublishDate from '$components/blog/PublishDate.svelte';
 	import Tag from '$components/blog/Tag.svelte';
 	import { setOgp } from '$lib/client/action/setOgp';
@@ -14,13 +15,16 @@
 />
 
 <article class="article">
+	<secton class="section">
+		<PublishDate publishedAt={blog.publishedAt} />
+		<HashTags tags={blog.tags} />
+	</secton>
 	<section
 		class="section blog-article serif"
 		class:ja={blog.lang[0] === 'ja'}
 		class:ko={blog.lang[0] === 'ko'}
 		use:setOgp
 	>
-		<PublishDate publishedAt={blog.publishedAt} />
 		<h1>{blog.title}</h1>
 		{@html blog.content}
 	</section>
@@ -31,10 +35,19 @@
 	@use 'src/style/fonts';
 	@use 'src/style/shadow';
 
-	.blog-article {
+	.article {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.5em;
+	}
+
+	.section {
 		display: flex;
 		flex-direction: column;
 		row-gap: 1em;
+	}
+
+	.blog-article {
 		--line-height: 1.8em;
 
 		:global(h1) {

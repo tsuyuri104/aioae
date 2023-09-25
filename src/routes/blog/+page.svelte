@@ -1,4 +1,5 @@
 <script lang="ts">
+	import HashTags from '$components/blog/HashTags.svelte';
 	import PublishDate from '$components/blog/PublishDate.svelte';
 	import H1 from '$components/common/H1EnHanddraw.svelte';
 	import Tag from '$components/layout/Tag.svelte';
@@ -30,11 +31,7 @@
 							<p class="summary">{blog.summary}</p>
 						</div>
 						<div class="footer">
-							<div class="tag-wrapper">
-								{#each blog.tags as tag}
-									<span class="tag">{tag}</span>
-								{/each}
-							</div>
+							<HashTags tags={blog.tags} />
 							<PublishDate publishedAt={blog.publishedAt} />
 						</div>
 					</div>
@@ -99,20 +96,5 @@
 
 	.summary {
 		font-weight: 300;
-	}
-
-	.tag-wrapper {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		column-gap: 1em;
-	}
-
-	.tag {
-		color: colors.get('blue', 'text');
-		font-size: 0.8em;
-		&::before {
-			content: '#';
-		}
 	}
 </style>
