@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Noto+Color+Emoji&family=Noto+Sans+JP:wght@200;300;400&family=Noto+Sans+KR:wght@200;300;400&family=Noto+Serif+JP:wght@200;300;400&family=Noto+Serif+KR:wght@200;300;400&family=Open+Sans:wght@300;400&family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Noto+Sans+JP:wght@200;300;400&family=Noto+Sans+KR:wght@200;300;400&family=Noto+Serif+JP:wght@200;300;400&family=Noto+Serif+KR:wght@200;300;400&family=Open+Sans:wght@300;400&family=PT+Serif&display=swap');
 $font: (
 	ja: (
 		serif: 'Noto Serif JP',
@@ -13,7 +13,6 @@ $font: (
 		serif: 'PT Serif',
 		sans: 'Open Sans',
 	),
-	emoji: 'Noto Color Emoji',
 );
 
 @function getSerif($lang) {
@@ -26,10 +25,6 @@ $font: (
 
 @function getFontFamily($lang, $style) {
 	@return map-get(map-get($font, $lang), $style), $style;
-}
-
-@function getEmoji() {
-	@return map-get($font, 'emoji');
 }
 
 .ja {
@@ -60,8 +55,4 @@ $font: (
 	&.handdraw {
 		font-family: map-get(map-get($font, en), handdraw);
 	}
-}
-
-.emoji {
-	font-family: getEmoji();
 }
