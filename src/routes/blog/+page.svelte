@@ -27,9 +27,6 @@
 							<span class="category">{blog.category[0]}</span>
 							<h2 class="title">{blog.title}</h2>
 						</div>
-						<div class="body">
-							<p class="summary">{blog.summary}</p>
-						</div>
 						<div class="footer">
 							<HashTags tags={blog.tags} />
 							<PublishDate publishedAt={blog.publishedAt} />
